@@ -68,7 +68,8 @@ public class IndexDB extends Database{
 		Hashtable<String,TokenDocuments> index=new Hashtable<String,TokenDocuments>();
 		MongoCollection<Document> tokens = db().getCollection(C_INDEX);
 		for(Document doc : tokens.find()){
-			index.put(doc.get(TOKEN).toString(), (TokenDocuments) doc.get(DOCUMENTS));
+			String token=doc.get(TOKEN).toString();
+			index.put(token, getDocs(token));
 		}
 		return index;
 	}
