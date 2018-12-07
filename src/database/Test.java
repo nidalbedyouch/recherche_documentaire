@@ -16,7 +16,7 @@ public class Test {
 		IndexDB indexDB=new IndexDB();
 		
 		TokenDocuments tokens=new TokenDocuments();
-		tokens.addDocument("doc3");
+		tokens.addDocumentPostion("doc3",127);
 		tokens.addDocumentPostion("doc4",125);
 		
 		indexDB.add("token5",tokens);

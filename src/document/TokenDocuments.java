@@ -18,6 +18,9 @@ public class TokenDocuments implements Serializable{
 		documents=new ArrayList<TokenDocument>();
 	}
 	
+	public void addDoc(TokenDocument doc){
+		documents.add(doc);
+	}
 	
 	public void setId(ObjectId id){
 		this.id=id;
@@ -25,9 +28,6 @@ public class TokenDocuments implements Serializable{
 	
 	public ObjectId  getId(){
 		return this.id;
-	}
-	public void addDocument(String id){
-		documents.add(new TokenDocument(id));
 	}
 	
 	public void addDocumentPostion(String id,int p){

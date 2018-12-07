@@ -27,7 +27,7 @@ public class IndexDB extends Database{
 		tokens.insertOne(tokenDoc);
 	}
 
-	private boolean exist(String token) {
+	public boolean exist(String token) {
 		MongoCollection<Document> tokens = db().getCollection(C_INDEX);
 	    FindIterable<Document> iterable = tokens.find(Filters.eq(TOKEN, token));
 		return iterable.first() != null;
@@ -36,6 +36,12 @@ public class IndexDB extends Database{
 	public void delete(String token){
 		MongoCollection<Document> tokens = db().getCollection(C_INDEX);
 		tokens.deleteOne(Filters.eq(TOKEN,token));
+	}
+	
+	public void addDocPosition(String token,String docId,int position){
+		TokenDocuments doc=getDocs(token);
+		doc.addDocumentPostion(docId, position);
+		setDocs(token,doc);
 	}
 	
 	public TokenDocuments getDocs(String token){
@@ -73,10 +79,4 @@ public class IndexDB extends Database{
 		}
 		return index;
 	}
-	
-	
-	
-	
-	
-
 }
