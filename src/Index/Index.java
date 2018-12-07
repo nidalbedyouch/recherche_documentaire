@@ -29,4 +29,11 @@ public class Index {
 		return docs;
 	}
 	
+	public TokenDocuments mergeOR(TokenDocuments list1,TokenDocuments list2){
+		list1.getDocuments().addAll(list2.getDocuments());
+		return list1;
+	}
+	
+	
+	
 }
